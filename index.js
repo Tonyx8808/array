@@ -71,18 +71,49 @@ console.log("User italy", userItaly);*/
 //4° ESERCIZIO
 // Exercise: Sort students by grade (descending) and return the top 3 students
 
-const students = [
+/*const students = [
   { name: 'Alice', grade: 85 },
   { name: 'Bob', grade: 92 },
   { name: 'Charlie', grade: 78 },
   { name: 'Diana', grade: 95 },
   { name: 'Eve', grade: 88 },
   { name: 'Frank', grade: 90 },
+];*/
+
+/*(VOGLIO CHIARIRLO CON MANFREDI VENERDI)//
+//creo una costante decrescent student
+//const decrescentStudent = students
+.sort((a, b) => b.grade - a.grade) // utilizzo .sort per ordinare gli elementi di un array
+.slice(0, 3); utilizzo .slice  un metodo che permette di estrarre una porzione di una stringa o di un array e 
+restituirla come nuovo oggetto, senza modificare l'originale. 
+In altre parole, slice() crea una copia di una parte della sequenza originale. 
+
+console.log(decrescentStudent);*/
+
+//5° ESERCIZIO
+// Exercise: Extract all tags from all posts into a single array,
+// removing duplicates and sorting alphabetically
+
+const blogPosts = [
+  { title: 'Post 1', tags: ['javascript', 'web', 'frontend'] },
+  { title: 'Post 2', tags: ['nodejs', 'backend', 'javascript'] },
+  { title: 'Post 3', tags: ['react', 'frontend', 'web'] },
+  { title: 'Post 4', tags: ['mongodb', 'database', 'backend'] },
 ];
 
 
-const decrescentStudent = students
-.sort((a, b) => b.grade - a.grade)
-.slice(0, 3);
+const newArray = blogPosts.flatMap(post => post.tags);
+const uniqueTags = [...new Set(newArray)];
+ console.log(uniqueTags);
 
-console.log(decrescentStudent);
+/*Funzionerà esattamente allo stesso modo, ma post rende più chiaro cosa rappresenta.
+const newArray = blogPosts.flatMap(boh => boh.tags);
+console.log(newArray);
+ogni oggetto di blogPosts, che noi abbiamo chiamato "post", 
+si trasforma nel contenuto di "tags" e quindi avremo un nuovo array 
+con il contenuto di tags.
+flatMap ci permette di trasformare come map e si unificare come flat.*/
+/*per rimuovere i duplicati si utilizza SET (che non permette di default i duplicati)
+° flapMap( estrae tutti i tag in un array piatto);
+°newSet(allTags) crea un ogetto Set che memorizza solo valori unici
+°[...new Set(allTags)] converte nuovamente il Set in un array.*/
