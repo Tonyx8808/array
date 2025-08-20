@@ -28,22 +28,44 @@ console.log(notavaibleDevice); //qui mi stampa nel console.log i prodotti non di
 // Exercise: Given an array of products, filter only the products that are in stock
 // considering quantity and applying a 10% discount if total is over 100
 
-const shoppingCart = [
+/*const shoppingCart = [
   { item: 'Book', price: 15, quantity: 2 },
   { item: 'Pen', price: 2, quantity: 10 },
   { item: 'Notebook', price: 8, quantity: 3 },
   { item: 'Backpack', price: 45, quantity: 1 },
 ];
-
-const totalCart = shoppingCart.reduce((acc, products) =>{
+/* ho dichiarato una variabile che fa un operazione tra il prezzo e la quantità utilizzando reduce e mi da 119*/
+/*const totalCart = shoppingCart.reduce((acc, products) =>{
   return acc + products.price * products.quantity
 }, 0);
+/* per applicare lo sconto del 10% ho creato una variabile let che permette di modificare e la condizione if
+e con il console.log ho stampato sia il totale e il prezzo finale con il 10% di sconto*/
 
-let finalPrice = totalCart;
+/*let finalPrice = totalCart;
 if(totalCart > 100){
   finalPrice = totalCart -(0.1 * totalCart);
 }
 
 console.log("totale", totalCart);
-console.log("prezzo finale", finalPrice);
+console.log("prezzo finale", finalPrice);*/
+
+//3° ESERCIZIO
+
+// Exercise: Find the first user who is both active and has admin role
+// Then check if there's at least one user from Italy
+
+/*const users = [
+  { id: 1, name: 'John', active: true, role: 'user', country: 'USA' },
+  { id: 2, name: 'Maria', active: false, role: 'admin', country: 'Spain' },
+  { id: 3, name: 'Luigi', active: true, role: 'admin', country: 'Italy' },
+  { id: 4, name: 'Anna', active: true, role: 'user', country: 'Germany' },
+];
+ 
+const activeUser = users.find(user => user.active === true && user.role === "user");
+
+const userItaly = users.some(user => user.country === "Italy");
+
+console.log("First active user", activeUser);
+console.log("User italy", userItaly);*/
+
 
