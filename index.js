@@ -68,4 +68,21 @@ const userItaly = users.some(user => user.country === "Italy");
 console.log("First active user", activeUser);
 console.log("User italy", userItaly);*/
 
+//4° ESERCIZIO
+// Exercise: Sort students by grade (descending) and return the top 3 students
 
+const students = [
+  { name: 'Alice', grade: 85 },
+  { name: 'Bob', grade: 92 },
+  { name: 'Charlie', grade: 78 },
+  { name: 'Diana', grade: 95 },
+  { name: 'Eve', grade: 88 },
+  { name: 'Frank', grade: 90 },
+];
+
+
+const decrescentStudent = students
+.sort((a, b) => b.grade - a.grade)
+.slice(0, 3);
+
+console.log(decrescentStudent);
