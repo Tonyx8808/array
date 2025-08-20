@@ -104,7 +104,9 @@ const blogPosts = [
 
 const newArray = blogPosts.flatMap(post => post.tags);
 const uniqueTags = [...new Set(newArray)];
- console.log(uniqueTags);
+const alphabeticOrder = uniqueTags.sort();
+console.log(alphabeticOrder);
+
 
 /*Funzionerà esattamente allo stesso modo, ma post rende più chiaro cosa rappresenta.
 const newArray = blogPosts.flatMap(boh => boh.tags);
@@ -116,4 +118,5 @@ flatMap ci permette di trasformare come map e si unificare come flat.*/
 /*per rimuovere i duplicati si utilizza SET (che non permette di default i duplicati)
 ° flapMap( estrae tutti i tag in un array piatto);
 °newSet(allTags) crea un ogetto Set che memorizza solo valori unici
-°[...new Set(allTags)] converte nuovamente il Set in un array.*/
+°[...new Set(allTags)] converte nuovamente il Set in un array.
+° ho utilizzato il .sort() per ordinare in ordine alfabetico gli elementi dell array*/
