@@ -345,3 +345,22 @@ const result = examScores
 }))
 .filter(student => student.score > 100); //solo punteggio > 100
 console.log(result);*/
+
+//12° ESERCIZIO
+
+// Exercise: Flatten the nested array structure and filter out all numbers less than 5
+
+const nestedNumbers = [
+  [1, 2, [3, 4]],
+  [5, [6, [7, 8]]],
+  [9, 10],
+  [[11, 12], 13],
+];
+
+const flatArray = nestedNumbers.flat(Infinity);
+
+
+const lessNumber = nestedNumbers
+.flat(Infinity) //estrae tutti i numeri
+.filter(num => num < 10); //tengo solo num minori di 10
+console.log(lessNumber);
