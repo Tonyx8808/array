@@ -247,7 +247,7 @@ userData.length = numero di persone = 5*/
 // Exercise: Find the index of the task with id 3 and remove it from the array
 // Then add a new task at that position
 
-const tasks = [
+/*const tasks = [
   { id: 1, task: 'Study JavaScript', completed: true },
   { id: 2, task: 'Practice coding', completed: false },
   { id: 3, task: 'Read documentation', completed: false },
@@ -258,14 +258,16 @@ const index = tasks.findIndex(item => item.id === 3);
 
 console.log("Indice del task con id 3", index);
 
-if (index !== -1) {
-  tasks.splice(index, 1, {
-    id: 5,
-    task: "Watch tutorial",
-    completed: false
-  });
-}
-console.log("Aggiornato", tasks);
+if (index !== -1) { //controllo di sicurezza
+  tasks.splice(index, 1, {/* index è il risultato di tasks.findIndex(...)
+Se findIndex trova l’elemento → restituisce il suo indice (es: 2)
+Se non trova nulla → restituisce -1*/
+   // id: 5,
+    //task: "Watch tutorial",
+   // completed: false
+  //});
+//}
+//console.log("Aggiornato", tasks);
 
 /*findIndex(item => item.id === 3) → cerca il task con id uguale a 3 → indice 2
 splice(index, 1, nuovoElemento) → rimuove 1 elemento e lo sostituisce con il nuovo
@@ -274,3 +276,72 @@ Se volessi solo rimuovere il task con id 3: tasks.splice(index, 1);
 Controllo di sicurezza: if (index !== -1)
 È fondamentale verificare che l’elemento esista prima di modificare l’array.
 Evita operazioni su posizioni non valide (es: splice(-1, 1, ...) non avrebbe senso).*/ 
+
+//ESERCIZIO CON .map()
+
+/*const tasks = [
+  { id: 1, task: 'Study JavaScript', completed: true },
+  { id: 2, task: 'Practice coding', completed: false },
+  { id: 3, task: 'Read documentation', completed: false },
+  { id: 4, task: 'Build project', completed: false },
+]
+
+//creo un nuovo task al posto di id: 3
+
+const newTask = {
+  id: 5,
+  task: "Watch tutorial",
+  completed: false
+};
+
+//utilizzo .map() per creare un nuovo array
+
+const uptadedTasks = tasks.map(tasks => {
+  // Se il task ha id === 3, sostituiscilo con nuovoTask
+  // Altrimenti, lascialo invariato
+  return tasks.id === 3 ? newTask : tasks;
+});
+
+console.log("Original", tasks);
+console.log("Updated", uptadedTasks);
+
+// map() è perfetto per aggiornare un elemento mantenendo l’immutabilità.
+//È più sicuro, prevedibile e adatto alle app moderne.
+/*Cosa succede?
+map() scorre ogni elemento dell’array tasks
+Per ogni task:
+Se è quello con id: 3 → lo sostituisce con il nuovo
+Se è un altro → lo lascia com’è
+Alla fine, restituisce un nuovo array chiamato updatedTasks
+ Perché non usare splice?
+splice() modifica l’array originale → non è sicuro in alcuni contesti (es. React)
+map() crea un nuovo array → più sicuro, prevedibile e facile da controllare
+Riassunto in 3 punti
+map() crea un nuovo array, non cambia quello vecchio. Controlla ogni elemento: se è quello che cerchi, 
+lo sostituisce; altrimenti lo copia.
+ È il modo pulito e sicuro per aggiornare una lista.
+Immagina di avere una fotocopia di un foglio con una lista:
+Con splice: cancelli e riscrivi direttamente sul foglio originale.
+Con map: fai una nuova fotocopia con le modifiche già fatte.*/
+
+//11° ESERCIZIO
+
+// Exercise: Double the scores of all students who passed (score >= 60)
+// and return only those with final score above 100
+
+/*const examScores = [
+  { student: 'Alex', score: 45 },
+  { student: 'Beth', score: 65 },
+  { student: 'Carl', score: 55 },
+  { student: 'Dana', score: 70 },
+  { student: 'Eric', score: 80 },
+];
+
+const result = examScores
+.filter( student => student.score >= 60) // filtro chi ha passato
+.map(student =>({    //raddoppio il punteggio
+  student: student.student, //****** 
+  score: student.score * 2 //*****
+}))
+.filter(student => student.score > 100); //solo punteggio > 100
+console.log(result);*/
