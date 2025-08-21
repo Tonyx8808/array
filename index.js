@@ -125,7 +125,7 @@ flatMap ci permette di trasformare come map e si unificare come flat.*/
 // Exercise: Given an array of products, filter only the products that are in stock
 // Then filter only the days with negative temperatures
 
-const temperatures = [
+/*const temperatures = [
   { day: 'Monday', temp: -2 },
   { day: 'Tuesday', temp: -5 },
   { day: 'Wednesday', temp: 1 },
@@ -133,7 +133,55 @@ const temperatures = [
   { day: 'Friday', temp: 0 },
 ];
 
-const underZero = temperatures.some(under => under.temp < 0);
+const underZero = temperatures.every(under => under.temp < 0);
 console.log(underZero);
 const negativeTemp = temperatures.filter(t => t.temp < 0);
-console.log(negativeTemp);
+console.log(negativeTemp);*/
+
+/* per controllare se tutti i giorni avevano le temperature 0 ho utilizzato il .every() che mi controlla se tutti gli elementi
+soddisfano una certa condizione se restituisce true ogni singolo elemento passa il test mentre false se non lo passa.
+dopo utilizzato il .every() che mi controlla la condizione della temperatura, ho utilizzato il .filter() che mi filtrava 
+solo i giorni con temperature negative*/ 
+
+//7° ESERCIZIO
+
+// Exercise: Create a formatted string of email addresses separated by semicolons
+// Format: "firstName.lastName@company.com"
+
+/*const employees = [
+  { firstName: 'John', lastName: 'Doe', department: 'IT' },
+  { firstName: 'Jane', lastName: 'Smith', department: 'HR' },
+  { firstName: 'Bob', lastName: 'Johnson', department: 'Sales' },
+  { firstName: 'Alice', lastName: 'Brown', department: 'IT' },
+];
+
+const company = "terchcorp";
+
+//creo un array di mail per formattare
+
+const mail = employees.map(emp => {
+  const username = `${emp.firstName}.${emp.lastName}`.toLowerCase();
+  return `${username}@${company}.com`;
+});
+
+//unisco tutte le mail con il punto e virgola
+
+const formattedMail = mail.join(";");
+console.log(formattedMail);*/
+
+/*ho creato una costante chiamata mail ho utilizzato il metodo .map() per ogni persona che dice (prendi ogni persona nella lista,
+una alla volta, e trasformala in qualcosa di nuovo). In questo caso sta trasformando in un qualcosa di nuovo, in questo caso
+una mail.
+La emp è solo un nome che ho dato ad ogni singolo dipendente mentre lo si processa
+tipo: adesso prendi John, Jane, e Bob uno per uno.
+Utilizzando la stringa dei template literal dice metti il nome poi il punto e poi il cognome, per far diventare (John.Doe).
+il .toLowerCase trasforma tutto in minuscolo.
+con il return disciamo ( prendi l'username tipo John.Doe e aggiungi la @ e poi il nome dell'azienda terchcop e poi .com)
+e lo restituisce john.doe@terchcorp.com, E lo restituiamo — cioè, diciamo al .map() di mettere questo valore nel nuovo array.
+Alla fine, .map() ha fatto il suo lavoro per tutti:
+John → john.doe@terchcorp.com
+Jane → jane.smith@terchcorp.com
+Bob → bob.johnson@terchcorp.com
+Alice → alice.brown@terchcorp.com
+E li ha messi tutti in un nuovo array chiamato mail.
+ */
