@@ -185,3 +185,61 @@ Bob → bob.johnson@terchcorp.com
 Alice → alice.brown@terchcorp.com
 E li ha messi tutti in un nuovo array chiamato mail.
  */
+
+//8° ESERCIZIO
+
+
+// Exercise: Group transactions by category and calculate total spent per category
+
+/*const transactions = [
+  { id: 1, category: 'Food', amount: 25 },
+  { id: 2, category: 'Transport', amount: 15 },
+  { id: 3, category: 'Food', amount: 30 },
+  { id: 4, category: 'Entertainment', amount: 50 },
+  { id: 5, category: 'Transport', amount: 20 },
+  { id: 6, category: 'Food', amount: 15 },
+];
+
+const totalByCategory = transactions.reduce((acc, transaction) => {
+  const category = transaction.category;
+  const amount = transaction.amount;
+  if (!acc[category]) {
+    acc[category] = 0;
+  }
+  acc[category] += amount;
+  return acc;
+}, {});
+console.log(totalByCategory);*/
+/*ho utilizzato il .reduce per Partire da un oggetto vuoto: {} → dove salverà i totali.
+Guardare ogni transazione.
+Aggiungere l’importo alla categoria giusta.
+Se la categoria non esiste ancora (es. "Food"), la crea con valore 0, poi ci somma l’importo.*/
+
+//9° ESERCIZIO
+
+// Calculate the average age of users who have verified email
+
+/*const userData = [
+  { name: 'Tom', age: 25, emailVerified: true },
+  { name: 'Lisa', age: 30, emailVerified: false },
+  { name: 'Mike', age: 22, emailVerified: true },
+  { name: 'Sarah', age: 28, emailVerified: true },
+  { name: 'James', age: 35, emailVerified: false },
+];
+const userVerified = userData.filter(user => user.emailVerified);
+console.log("User emailVerified", userVerified);
+const sommaEta = userVerified.reduce((somma, user) => somma + user.age, 0);
+const etaMedia = sommaEta / userVerified.length;
+
+console.log("età Media", etaMedia);*/
+
+/* filter() crea un nuovo array con solo le persone che hanno emailVerified: true.
+user.emailVerified è un booleano (true o false), quindi:
+se è true → l’utente viene incluso
+se è false → viene escluso 
+.reduce() serve a comprimere un array in un unico valore.
+Parte da 0 (il valore iniziale).
+Per ogni persona, aggiunge la sua età (user.age) alla somma.
+userData.length = numero di persone = 5*/
+
+//
