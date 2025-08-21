@@ -242,4 +242,35 @@ Parte da 0 (il valore iniziale).
 Per ogni persona, aggiunge la sua età (user.age) alla somma.
 userData.length = numero di persone = 5*/
 
-//
+//10° ESERCIZIO
+
+// Exercise: Find the index of the task with id 3 and remove it from the array
+// Then add a new task at that position
+
+const tasks = [
+  { id: 1, task: 'Study JavaScript', completed: true },
+  { id: 2, task: 'Practice coding', completed: false },
+  { id: 3, task: 'Read documentation', completed: false },
+  { id: 4, task: 'Build project', completed: false },
+]
+
+const index = tasks.findIndex(item => item.id === 3);
+
+console.log("Indice del task con id 3", index);
+
+if (index !== -1) {
+  tasks.splice(index, 1, {
+    id: 5,
+    task: "Watch tutorial",
+    completed: false
+  });
+}
+console.log("Aggiornato", tasks);
+
+/*findIndex(item => item.id === 3) → cerca il task con id uguale a 3 → indice 2
+splice(index, 1, nuovoElemento) → rimuove 1 elemento e lo sostituisce con il nuovo
+Il vecchio task { id: 3, ... } viene sostituito da uno nuovo
+Se volessi solo rimuovere il task con id 3: tasks.splice(index, 1);
+Controllo di sicurezza: if (index !== -1)
+È fondamentale verificare che l’elemento esista prima di modificare l’array.
+Evita operazioni su posizioni non valide (es: splice(-1, 1, ...) non avrebbe senso).*/ 
