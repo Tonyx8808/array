@@ -94,7 +94,7 @@ console.log(decrescentStudent);*/
 // Exercise: Extract all tags from all posts into a single array,
 // removing duplicates and sorting alphabetically
 
-const blogPosts = [
+/*const blogPosts = [
   { title: 'Post 1', tags: ['javascript', 'web', 'frontend'] },
   { title: 'Post 2', tags: ['nodejs', 'backend', 'javascript'] },
   { title: 'Post 3', tags: ['react', 'frontend', 'web'] },
@@ -105,7 +105,7 @@ const blogPosts = [
 const newArray = blogPosts.flatMap(post => post.tags);
 const uniqueTags = [...new Set(newArray)];
 const alphabeticOrder = uniqueTags.sort();
-console.log(alphabeticOrder);
+console.log(alphabeticOrder);*/
 
 
 /*Funzionerà esattamente allo stesso modo, ma post rende più chiaro cosa rappresenta.
@@ -120,3 +120,20 @@ flatMap ci permette di trasformare come map e si unificare come flat.*/
 °newSet(allTags) crea un ogetto Set che memorizza solo valori unici
 °[...new Set(allTags)] converte nuovamente il Set in un array.
 ° ho utilizzato il .sort() per ordinare in ordine alfabetico gli elementi dell array*/
+
+//6° ESERCIZIO
+// Exercise: Given an array of products, filter only the products that are in stock
+// Then filter only the days with negative temperatures
+
+const temperatures = [
+  { day: 'Monday', temp: -2 },
+  { day: 'Tuesday', temp: -5 },
+  { day: 'Wednesday', temp: 1 },
+  { day: 'Thursday', temp: -3 },
+  { day: 'Friday', temp: 0 },
+];
+
+const underZero = temperatures.some(under => under.temp < 0);
+console.log(underZero);
+const negativeTemp = temperatures.filter(t => t.temp < 0);
+console.log(negativeTemp);
