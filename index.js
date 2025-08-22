@@ -372,7 +372,7 @@ console.log(lessNumber);*/
 
 // Exercise: Given an array of products, filter only the products that are in stock
 
-const library = [
+/*const library = [
   { title: 'The Great Gatsby', author: 'Fitzgerald', year: 1925 },
   { title: 'To Kill a Mockingbird', author: 'Lee', year: 1960 },
   { title: '1984', author: 'Orwell', year: 1949 },
@@ -385,4 +385,39 @@ const bookYears = library.sort((a, b) => a.year - b.year);
 
 const alphabeticOrder = [...library].sort((a, b) => a.title.localeCompare (b.title));
 console.log("ordinamento per data", bookYears);
-console.log("in ordine alfabetico", alphabeticOrder)
+console.log("in ordine alfabetico", alphabeticOrder)*/
+
+//14° ESERCIZIO
+// Exercise: Given an array of products, filter only the products that are in stock
+
+/*const inventory = [
+  { name: 'Shirt', category: 'Clothing', price: 30 },
+  { name: 'Laptop', category: 'Electronics', price: 1000 },
+  { name: 'Shoes', category: 'Footwear', price: 80 },
+  { name: 'Phone', category: 'Electronics', price: 600 },
+  { name: 'Jeans', category: 'Clothing', price: 50 },
+  { name: 'Watch', category: 'Accessories', price: 200 },
+];
+
+const selectedCategories = ['Electronics', 'Clothing'];*/ //definizione di un array delle categorie che interessano
+
+/* 1- creo una nuova variabile che conterrà i prodotti filtrati
+2- uso il metodo .filter() sull'array "inventory"
+3- per ogni prodotto nell'inventario, verifica la condizione.*/
+
+/*controllo se la categoria del prodotto corrente è presente nell'array selectedCategories
+se si, il prodotto viene incluso nel nuovo array*/
+
+//const inStockSelectedProducts = inventory.filter(product => {
+  //return selectedCategories.includes(product.category)
+
+   /*Nota: non controllo più se il prodotto è 'inStock' (disponibile)
+   Quindi tutti i prodotti delle categorie 'Electronics' o 'Clothing' saranno inclusi,
+   anche se non sono disponibili (se ci fosse la proprietà inStock: false)*/
+
+//});
+
+/*stampo il risultato del filtro nella console e
+si vede i prodotti che appartengono alle categorie interessate.*/
+
+//console.log(inStockSelectedProducts);
