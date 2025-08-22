@@ -396,10 +396,10 @@ console.log("in ordine alfabetico", alphabeticOrder)*/
   { name: 'Shoes', category: 'Footwear', price: 80 },
   { name: 'Phone', category: 'Electronics', price: 600 },
   { name: 'Jeans', category: 'Clothing', price: 50 },
-  { name: 'Watch', category: 'Accessories', price: 200 },
-];
+  { name: 'Watch', category: 'Accessories', price: 200 },*/
+//];
 
-const selectedCategories = ['Electronics', 'Clothing'];*/ //definizione di un array delle categorie che interessano
+//const selectedCategories = ['Electronics', 'Clothing']; //definizione di un array delle categorie che interessano
 
 /* 1- creo una nuova variabile che conterrà i prodotti filtrati
 2- uso il metodo .filter() sull'array "inventory"
@@ -411,13 +411,27 @@ se si, il prodotto viene incluso nel nuovo array*/
 //const inStockSelectedProducts = inventory.filter(product => {
   //return selectedCategories.includes(product.category)
 
-   /*Nota: non controllo più se il prodotto è 'inStock' (disponibile)
-   Quindi tutti i prodotti delle categorie 'Electronics' o 'Clothing' saranno inclusi,
-   anche se non sono disponibili (se ci fosse la proprietà inStock: false)*/
+   /*Quindi tutti i prodotti delle categorie 'Electronics' o 'Clothing' saranno inclusi,
+   anche se non sono disponibili)*/
 
 //});
 
 /*stampo il risultato del filtro nella console e
 si vede i prodotti che appartengono alle categorie interessate.*/
 
-//console.log(inStockSelectedProducts);
+//console.log(inStockSelectedProducts);*/
+
+//15° ESERCIZIO
+
+// Exercise: Convert the array of key-value pairs into an object
+
+const keyValuePairs = [
+  ['name', 'John'],
+  ['age', 30],
+  ['city', 'New York'],
+  ['profession', 'Developer'],
+  ['hobby', 'Photography'],
+];
+
+const obj = Object.fromEntries(keyValuePairs);
+console.log(obj);
