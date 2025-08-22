@@ -425,13 +425,57 @@ si vede i prodotti che appartengono alle categorie interessate.*/
 
 // Exercise: Convert the array of key-value pairs into an object
 
-const keyValuePairs = [
-  ['name', 'John'],
-  ['age', 30],
-  ['city', 'New York'],
-  ['profession', 'Developer'],
-  ['hobby', 'Photography'],
-];
+//const keyValuePairs = [
+  //['name', 'John'],
+  //['age', 30],
+  //['city', 'New York'],
+  //['profession', 'Developer'],
+  //['hobby', 'Photography'],
+//];
 
-const obj = Object.fromEntries(keyValuePairs);
-console.log(obj);
+//const obj = Object.fromEntries(keyValuePairs);
+//console.log(obj);
+
+/* Object.fromEntries() → metodo del costruttore Object
+Accetta un array di coppie [chiave, valore]
+Restituisce un oggetto JavaScript*/
+
+//16° ESERCIZIO
+
+// Exercise: Add a 'hasDiscount' property to each product
+// Set it to true if any of its tags includes 'sale' or 'promo'
+
+// Array dei prodotti (catalogo)
+
+//const catalog = [
+// { id: 1, name: 'Tablet', tags: ['electronics', 'sale'] },
+ // { id: 2, name: 'Chair', tags: ['furniture', 'office'] },
+  //{ id: 3, name: 'Desk', tags: ['furniture', 'promo', 'office'] },
+//  { id: 4, name: 'Lamp', tags: ['lighting', 'home'] },
+//];
+
+/*Uso .map() per creare un NUOVO array di prodotti
+ Ogni prodotto sarà uguale al precedente, ma con una nuova proprietà: hasDiscount*/
+
+//const catalogWithDiscount = catalog.map(product => {
+
+  /* Controllo se il prodotto ha almeno uno dei tag di sconto
+   .includes('sale') → true se 'sale' è presente nei tag
+  .includes('promo') → true se 'promo' è presente nei tag
+   Usiamo l'operatore OR (||) → se almeno uno è vero, hasDiscount sarà true*/
+
+  //const hasDiscount = product.tags.includes('sale') || product.tags.includes('promo');
+  
+   /* Creo un nuovo oggetto che:
+   - copia tutte le proprietà del prodotto originale (...product)
+  - aggiunge la nuova proprietà 'hasDiscount' con il valore calcolato */
+
+  //return {
+    //...product,
+    //hasDiscount: hasDiscount  // si può scrivere solo `hasDiscount` (shorthand)
+  //};
+//});
+
+// Stampo il risultato finale: il catalogo aggiornato con la nuova proprietà
+
+//console.log(catalogWithDiscount);
