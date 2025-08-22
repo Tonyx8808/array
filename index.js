@@ -487,15 +487,15 @@ Restituisce un oggetto JavaScript*/
 // Return them in lowercase
 
 //const accounts = [
-//  { email: 'John@EXAMPLE.com', age: 28, active: true, joinYear: 2021 },
-//  { email: 'MARY@example.COM', age: 24, active: true, joinYear: 2022 },
+ // { email: 'John@EXAMPLE.com', age: 28, active: true, joinYear: 2021 },
+  //{ email: 'MARY@example.COM', age: 24, active: true, joinYear: 2022 },
   //{ email: 'Bob@EXAMPLE.com', age: 30, active: false, joinYear: 2021 },
-//  //{ email: 'alice@Example.COM', age: 26, active: true, joinYear: 2019 },
-  //{ email: 'TOM@example.com', age: 27, active: true, joinYear: 2023 },
+//{ email: 'alice@Example.COM', age: 26, active: true, joinYear: 2019 },
+//  { email: 'TOM@example.com', age: 27, active: true, joinYear: 2023 },
 //];
 
 //const emailOver = accounts
-  //.filter(a => a.active && a.age > 25) 
+//.filter(a=> a.age > 25 && a.joinYear >= 2020 && a.active === true)
 
   /*filtra solo gli account che soddisfano tutte e tre le condizioni
   1- a.active se l utente è attivo
@@ -512,3 +512,42 @@ Restituisce un oggetto JavaScript*/
   3- la trasforma in minuscolo con .toLowerCase()*/
   
 //console.log(emailOver);
+
+//18° ESERCIZIO
+
+// Exercise: Find the first month where all weeks had sales above 1000
+// Return the month index and verify if all subsequent months also meet this criteria
+
+//const monthlySales = [
+  //{ month: 'Jan', weeks: [800, 1200, 900, 1100] },
+  //{ month: 'Feb', weeks: [1100, 1200, 1500, 1300] },
+  //{ month: 'Mar', weeks: [1200, 1100, 1400, 1300] },
+  //{ month: 'Apr', weeks: [900, 1000, 1100, 800] },
+  //{ month: 'May', weeks: [1100, 1200, 1300, 1400] },
+//];
+
+//const firstIndex = monthlySales.findIndex(mounth => mounth.weeks.every(week => week > 1000)
+//);
+//console.log("indice del primo mese con tutte le settimane > 1000", firstIndex);
+
+/*.findIndex() cerca il primo elemento che soddisfa la condizione.
+month.weeks.every(week => week > 1000) verifica che ogni settimana del mese abbia vendite maggiori di 1000.
+Se lo trova, restituisce l’indice (posizione) del mese nell’array.
+Se nessun mese soddisfa la condizione, restituisce -1.*/
+
+//if (firstIndex !== -1) {
+//  const remainingMonths = monthlySales.slice(firstIndex + 1);
+//allSubsequentMeetCriteria = remainingMonths.every(month =>
+// month.weeks.every(week => week > 1000)
+// );
+//}
+//console.log("Tutti i mesi successivi soddisfano il criterio?", allSubsequentMeetCriteria);
+
+/* Verificare se tutti i mesi che vengono DOPO il primo mese "valido" (cioè dove tutte le settimane > 1000) 
+rispettano anch’essi lo stesso criterio.
+firstIndex è l’indice del primo mese in cui tutte le settimane > 1000.
+Se nessun mese soddisfa questa condizione, findIndex() restituisce -1.
+Quindi, questo if dice:
+"Se abbiamo trovato almeno un mese valido, procedi con la verifica dei mesi successivi." 
+ Se firstIndex è 1, 2, ecc. → entra nell’if.
+Se firstIndex è -1 → salta tutto.*/ 
