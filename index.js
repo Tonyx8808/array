@@ -2,22 +2,27 @@
 //// Exercise: Given an array of products, filter only the products that are in stock
 // and return an array with their names in uppercase
 
-/*const products = [
+const products = [
   { id: 1, name: 'Laptop', price: 999, inStock: true },
   { id: 2, name: 'Mouse', price: 25, inStock: false },
   { id: 3, name: 'Keyboard', price: 75, inStock: true },
   { id: 4, name: 'Monitor', price: 350, inStock: false },
   { id: 5, name: 'Headphones', price: 85, inStock: true },
-];*/
+];
 
 /*filtro la condizione dei device disponibili con product.filter (serve a creare un nuovo array che contengono solo gli elementi
 che soddisfano una condizione specifica in questo caso true ------- mentre product.inStock è una 
 proprietà di ogni ogetto del prodotto che può avere come valore true o false)
 in questo caso è true perchè si è filtrato solamente i prodotti disponibili*/
 
-//const availableDevice = products.filter(products => products.inStock);
-//console.log(availableDevice);//
+/*const availableDevice = products.filter(products => products.inStock);
+console.log(availableDevice);//
 
+const present = products
+.filter(s => s.inStock)
+.map(s => s.name.toUpperCase());
+
+console.log(present);*/
 // se voglio filtrare solamente i prodotti non disponibili creo la stessa sintassi ma aggiungo l'operatore logico NOT(!)//
 
 /*const notavaibleDevice = products.filter(product => !product.inStock);
@@ -350,7 +355,7 @@ console.log(result);*/
 
 // Exercise: Flatten the nested array structure and filter out all numbers less than 5
 
-const nestedNumbers = [
+/*const nestedNumbers = [
   [1, 2, [3, 4]],
   [5, [6, [7, 8]]],
   [9, 10],
@@ -358,9 +363,26 @@ const nestedNumbers = [
 ];
 
 const flatArray = nestedNumbers.flat(Infinity);
-
-
 const lessNumber = nestedNumbers
 .flat(Infinity) //estrae tutti i numeri
 .filter(num => num < 10); //tengo solo num minori di 10
-console.log(lessNumber);
+console.log(lessNumber);*/
+
+//13°ESERCIZIO
+
+// Exercise: Given an array of products, filter only the products that are in stock
+
+const library = [
+  { title: 'The Great Gatsby', author: 'Fitzgerald', year: 1925 },
+  { title: 'To Kill a Mockingbird', author: 'Lee', year: 1960 },
+  { title: '1984', author: 'Orwell', year: 1949 },
+  { title: 'Animal Farm', author: 'Orwell', year: 1945 },
+  { title: 'Brave New World', author: 'Huxley', year: 1932 },
+  { title: 'Fahrenheit 451', author: 'Bradbury', year: 1953 },
+];
+
+const bookYears = library.sort((a, b) => a.year - b.year);
+
+const alphabeticOrder = [...library].sort((a, b) => a.title.localeCompare (b.title));
+console.log("ordinamento per data", bookYears);
+console.log("in ordine alfabetico", alphabeticOrder)
