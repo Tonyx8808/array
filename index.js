@@ -2,13 +2,13 @@
 //// Exercise: Given an array of products, filter only the products that are in stock
 // and return an array with their names in uppercase
 
-const products = [
-  { id: 1, name: 'Laptop', price: 999, inStock: true },
-  { id: 2, name: 'Mouse', price: 25, inStock: false },
-  { id: 3, name: 'Keyboard', price: 75, inStock: true },
-  { id: 4, name: 'Monitor', price: 350, inStock: false },
-  { id: 5, name: 'Headphones', price: 85, inStock: true },
-];
+////const products = [
+  //{ id: 1, name: 'Laptop', price: 999, inStock: true },
+  //{ id: 2, name: 'Mouse', price: 25, inStock: false },
+//  { id: 3, name: 'Keyboard', price: 75, inStock: true },
+  //{ id: 4, name: 'Monitor', price: 350, inStock: false },
+  //{ id: 5, name: 'Headphones', price: 85, inStock: true },
+//];
 
 /*filtro la condizione dei device disponibili con product.filter (serve a creare un nuovo array che contengono solo gli elementi
 che soddisfano una condizione specifica in questo caso true ------- mentre product.inStock è una 
@@ -479,3 +479,36 @@ Restituisce un oggetto JavaScript*/
 // Stampo il risultato finale: il catalogo aggiornato con la nuova proprietà
 
 //console.log(catalogWithDiscount);
+
+//17° ESERCIZIO
+
+
+// Exercise: Extract emails of active users older than 25 who joined after 2020
+// Return them in lowercase
+
+//const accounts = [
+//  { email: 'John@EXAMPLE.com', age: 28, active: true, joinYear: 2021 },
+//  { email: 'MARY@example.COM', age: 24, active: true, joinYear: 2022 },
+  //{ email: 'Bob@EXAMPLE.com', age: 30, active: false, joinYear: 2021 },
+//  //{ email: 'alice@Example.COM', age: 26, active: true, joinYear: 2019 },
+  //{ email: 'TOM@example.com', age: 27, active: true, joinYear: 2023 },
+//];
+
+//const emailOver = accounts
+  //.filter(a => a.active && a.age > 25) 
+
+  /*filtra solo gli account che soddisfano tutte e tre le condizioni
+  1- a.active se l utente è attivo
+  2- a.age > 25 se l utente ha più di 25 anni
+  3- si è iscritto dopo il 2020
+  a- è un abbreviazione di "account"
+  &&- operatore logico AND: tutte le condizioni devono essere true*/
+  
+  //.map(s => s.email.toLowerCase());
+
+  /* 
+  1- prende ogni account rimasto dopo il filtro
+  2- estrae la proprietà AND
+  3- la trasforma in minuscolo con .toLowerCase()*/
+  
+//console.log(emailOver);
