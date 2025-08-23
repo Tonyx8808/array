@@ -551,3 +551,278 @@ Quindi, questo if dice:
 "Se abbiamo trovato almeno un mese valido, procedi con la verifica dei mesi successivi." 
  Se firstIndex è 1, 2, ecc. → entra nell’if.
 Se firstIndex è -1 → salta tutto.*/ 
+
+//19° ESERCIZIO
+
+// Exercise: Calculate the total price for each order
+// Apply discounts based on quantity: 5-9 items: 5%, 10+ items: 10%
+// Return array of objects with orderId and finalPrice
+
+//const orders = [
+  //{
+   // orderId: 'A001',
+   // items: [
+    //  { product: 'Widget', price: 10, quantity: 3 },
+     // { product: 'Gadget', price: 20, quantity: 2 },
+   // ],
+  //},
+  //{
+   // orderId: 'A002',
+   // items: [
+   //   { product: 'Widget', price: 10, quantity: 5 },
+    //  { product: 'Tool', price: 15, quantity: 6 },
+   // ],
+  //},
+//  {
+  //  orderId: 'A003',
+  //  items: [
+  //    { product: 'Gadget', price: 20, quantity: 8 },
+   //   { product: 'Tool', price: 15, quantity: 4 },
+   // ],
+  //},
+//];
+
+//calcola il prezzo totale (prima dello sconto)
+
+//const result = orders.map(order =>{
+//  const subtotal = order.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+  //calcola la quantità totale di articoli
+
+  //const totalQuantity = order.items.reduce((sum, item) => sum + item.quantity, 0);
+
+  //applica lo sconto in base alla quantità
+
+// let discount = 0;
+// if(totalQuantity >=10){
+ // discount = 0.10; //10%
+
+// }else if (totalQuantity >=5){
+//  discount = 0.5; //5%
+// }
+
+ //calcolo del prezzo finale
+
+// const finalPrice = subtotal * (1 - discount);
+
+ //restituzione dell'ogetto richiesto
+
+// return {
+  //orderId: order.orderId,
+  //finalPrice: parseFloat(finalPrice.toFixed(2)) //arrotonda di 2 decimali
+// };
+//});
+
+//console.log(result);
+
+/* Ordine 1:
+Totale: (20×3) + (50×2) = 60 + 100 = 160
+Quantità: 3 + 2 = 5 → sconto 5%
+Finale: 160 * 0.95 = 152
+
+Ordine 2:
+Totale: (30×4) + (15×6) = 120 + 90 = 210
+Quantità: 4 + 6 = 10 → sconto 10%
+Finale: 210 * 0.90 = 189
+
+Ordine 3:
+Totale: (45×3) + (80×1) = 135 + 80 = 215
+Quantità: 3 + 1 = 4 → nessuno sconto
+Finale: 215*/
+
+//20° ESERCIZIO
+
+//Exercise: Process the log entries to find:
+// 1. All unique user IDs who had errors
+// 2. The most common action type
+// 3. Average response time for successful requests (status 200)
+// 4. List of actions sorted by timestamp (newest first)
+
+/*const logs = [
+  {
+    userId: 101,
+    action: 'login',
+    status: 200,
+    responseTime: 120,
+    timestamp: '2024-01-10T10:00:00',
+  },
+  {
+    userId: 102,
+    action: 'upload',
+    status: 500,
+    responseTime: 450,
+    timestamp: '2024-01-10T10:05:00',
+  },
+  {
+    userId: 101,
+    action: 'download',
+    status: 200,
+    responseTime: 200,
+    timestamp: '2024-01-10T10:10:00',
+  },
+  {
+    userId: 103,
+    action: 'login',
+    status: 200,
+    responseTime: 100,
+    timestamp: '2024-01-10T10:15:00',
+  },
+  {
+    userId: 102,
+    action: 'login',
+    status: 401,
+    responseTime: 80,
+    timestamp: '2024-01-10T10:20:00',
+  },
+  {
+    userId: 104,
+    action: 'upload',
+    status: 200,
+    responseTime: 300,
+    timestamp: '2024-01-10T10:25:00',
+  },
+  {
+    userId: 101,
+    action: 'logout',
+    status: 200,
+    responseTime: 50,
+    timestamp: '2024-01-10T10:30:00',
+  },
+  {
+    userId: 103,
+    action: 'download',
+    status: 404,
+    responseTime: 150,
+    timestamp: '2024-01-10T10:35:00',
+  },
+];
+ //PARTE 1
+const errorUserIds = [... new Set(
+  logs
+  .filter(log => log.status !== 200)
+  .map(log => log.userId)
+)];
+
+//PARTE 2
+const actionCount = logs.reduce((acc, log) =>{
+  acc[log.action] = (acc[log.action] || 0) +1;
+  return acc;
+}, {});
+
+const mostCommonAction = Object.keys(actionCount).reduce((a, b) =>
+actionCount [a] > actionCount[b] ? a : b
+);
+
+//PARTE 3
+const successfulLogs = logs.filter(log => log.status === 200);
+const avgResponseTime = successfulLogs.length > 0
+? successfulLogs.reduce((sum, log) => sum + log.responseTime, 0) / successfulLogs.length
+:0;
+
+//PARTE 4
+const actionsByNewest = logs
+  .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+  .map(log => log.action);
+
+  console.log("1. User IDs con errori:", errorUserIds);
+console.log("2. Azione più comune:", mostCommonAction);
+console.log("3. Tempo medio di risposta per richieste OK (200):", avgResponseTime, "ms");
+console.log("4. Azioni ordinate per data (più recente prima):", actionsByNewest);*/
+
+//SPIEGAZIONE DELL ESERCIZIO
+/* PARTE 1 -- AnalizzO questa riga "dall'interno all'esterno":
+
+.filter(log => log.status !== 200)
+Filtra tutti i log dove lo status non è 200 (quindi sono errori).
+Restituisce un nuovo array con solo i log di errore: 
+
+Utente 102: status 500
+Utente 102: status 401
+Utente 103: status 404
+.map(log => log.userId)
+Prende l'array filtrato (solo errori) e trasforma ogni oggetto nel suo userId.
+Risultato: [102, 102, 103] 
+
+new Set([102, 102, 103])
+Un Set è una struttura dati che elimina i duplicati.
+Quindi diventa: {102, 103} (Set con due valori unici) 
+
+[...new Set(...)]
+Usa l'operatore spread (...) per trasformare il Set di nuovo in un array.
+Risultato finale: [102, 103] 
+
+const errorUserIds = ...
+Salva questo array in una costante chiamata errorUserIds. 
+
+ Quindi: errorUserIds contiene tutti gli ID utente che hanno avuto almeno un errore, senza ripetizioni. 
+ 
+ PARTE 2 --- Uso il metodo .reduce() per contare quante volte appare ogni tipo di azione. 
+
+acc è l’accumulatore: un oggetto che parte vuoto {} (grazie al secondo argomento di reduce)
+log è ogni singolo oggetto nell’array logs
+acc[log.action] = (acc[log.action] || 0) + 1
+Prendo il nome dell’azione (es. 'login')
+Se acc['login'] esiste, prendi quel valore, altrimenti usa 0
+Aggiungi 1 e salvalo in acc['login']
+Esempio: 
+
+Primo login: acc['login'] = 0 + 1 = 1
+Secondo login: acc['login'] = 1 + 1 = 2
+E così via.
+Alla fine, actionCount sarà: 
+
+Object.keys(actionCount) → restituisce ['login', 'upload', 'download', 'logout']
+UsO .reduce() su queste chiavi per trovare quella con il valore più alto in actionCount
+Confronta actionCount[a] vs actionCount[b], e torna la chiave con il conteggio maggiore
+Risultato: 'login' (perché ha valore 3, il più alto) 
+
+PARTE 3 --- Filtra tutti i log con status === 200 (successo).
+Questi sono: 
+login (101) → 120 ms
+download (101) → 200 ms
+login (103) → 100 ms
+upload (104) → 300 ms
+logout (101) → 50 ms
+Quindi successfulLogs è un array di 5 oggetti. 
+ControllO se ci sono log di successo (length > 0)
+Se sì:
+.reduce() somma tutti i responseTime:
+120 + 200 + 100 + 300 + 50 = 770
+Dividiamo per il numero di richieste: 770 / 5 = 154
+Se non ci fossero successi, restituiamo 0 (protezione)
+Risultato: avgResponseTime = 154 
+
+PARTE 4 --- Prendo l’array logs
+Lo ordiniamo con .sort()
+.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+a e b sono due oggetti log
+new Date(...) trasforma la stringa del timestamp in un oggetto data
+b - a → se b è più recente, il risultato è positivo → b viene prima
+Quindi ordino dal più nuovo al più vecchio
+Esempio: 
+
+b.timestamp = '2024-01-10T10:35:00' → più recente
+a.timestamp = '2024-01-10T10:30:00'
+new Date(b) - new Date(a) → numero positivo → b viene prima
+Dopo l’ordinamento, l’array è ordinato dal log più recente a quello più vecchio. 
+
+.map(log => log.action)
+Prendiamo ogni oggetto ordinato e ne estraiamo solo il campo action 
+
+Risultato: 
+[
+  'download',  // 10:35
+  'logout',    // 10:30
+  'upload',    // 10:25
+  'login',     // 10:20
+  'login',     // 10:15
+  'download',  // 10:10
+  'upload',    // 10:05
+  'login'      // 10:00
+] e lo salvo in actionByNewest
+
+STAMPA FINALE CON console.log
+  1 console.log stampa: "1. User IDs con errori:" seguito dall'array [102, 103] 
+  2 console.log Stampa: "2. Azione più comune:" seguito da 'login' 
+  3 console.log Stampa: il numero medio (154) e aggiunge "ms" per indicare millisecondi 
+  4 console.log Stampa l’array ordinato delle azioni*/
