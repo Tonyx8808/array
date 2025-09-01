@@ -28,7 +28,7 @@
 
         //ESERCIZIO 2
 
-async function fetchTodos() {
+/*async function fetchTodos() {
     try {
         const response = await fetch("https://jsonplaceholder.typicode.com/todos");
         const todos = await response.json();
@@ -60,4 +60,52 @@ async function fetchTodos() {
         console.error('Errore nel recupero dei todos:', error);
     }
 }
-fetchTodos();
+fetchTodos();*/
+
+//ESERCIZIO 3
+
+//recupero i post API
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(response => response.json())
+  .then(posts => {
+    const searchInput = document.getElementById("searchInput");
+    const postsList = document.getElementById("postsList");
+    const countElement = document.getElementById("countElement");
+
+    // funzione per visualizzare i post
+    const displayPosts = (postsToShow) => {
+      // svuota la lista
+      postsList.innerHTML = "";
+
+      // aggiorna il conteggio
+      countElement.textContent = `Post trovati: ${postsToShow.length}`;
+
+      // utilizzo forEach per aggiungere i risultati al DOM
+      postsToShow.forEach(post => {
+        const li = document.createElement("li");
+        li.textContent = post.title;
+        postsList.appendChild(li);
+      });
+    };
+
+    // Visualizza tutti i post all'inizio
+    displayPosts(posts);
+
+    // Aggiungi l'evento di ricerca
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+
+      // Usa filter() e includes() per cercare nei titoli
+      const filteredPosts = posts.filter(post =>
+        post.title.toLowerCase().includes(query)
+      );
+
+      // Visualizza i post filtrati
+      displayPosts(filteredPosts);
+    });
+  })
+  .catch(error => {
+    console.error('Errore nel recupero dei post:', error);
+    document.getElementById('postsList').innerHTML = '<li>Errore nel caricamento dei post.</li>';
+  });
